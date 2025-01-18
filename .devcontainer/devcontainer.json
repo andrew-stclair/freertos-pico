@@ -1,0 +1,21 @@
+{
+	"name": "Debian",
+	"image": "mcr.microsoft.com/devcontainers/base:bookworm",
+	"features": {
+		"ghcr.io/devcontainers-extra/features/apt-get-packages:1": {
+			"packages": "cmake,gcc-arm-none-eabi,build-essential,python3"
+		}
+	},
+	"remoteEnv": {
+		"PICO_SDK_PATH": "/workspaces/freertos-pico/pico-sdk",
+		"FREERTOS_KERNEL_PATH": "/workspaces/freertos-pico/FreeRTOS-Kernel"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools-extension-pack"
+			]
+		}
+	},
+	"postStartCommand": "git submodule update --init --recursive"
+}
